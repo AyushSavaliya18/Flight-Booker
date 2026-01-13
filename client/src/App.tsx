@@ -12,11 +12,15 @@ import Seats from "@/pages/seats";
 import Payment from "@/pages/payment";
 import Confirmation from "@/pages/confirmation";
 import Admin from "@/pages/admin";
+import AdminLogin from "@/pages/admin-login";
 import Login from "@/pages/login";
 import Signup from "@/pages/signup";
 import NotFound from "@/pages/not-found";
+import { useStore } from "@/lib/store";
 
 function Router() {
+  const { isAdminAuthenticated } = useStore();
+  
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -25,7 +29,10 @@ function Router() {
       <Route path="/booking/seats" component={Seats} />
       <Route path="/booking/payment" component={Payment} />
       <Route path="/booking/confirmation/:id" component={Confirmation} />
-      <Route path="/admin" component={Admin} />
+      <Route path="/admin">
+        {isAdminAuthenticated ? <Admin /> : <AdminLogin />}
+      </Route>
+      <Route path="/admin-login" component={AdminLogin} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route component={NotFound} />

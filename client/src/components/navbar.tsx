@@ -85,8 +85,8 @@ export function Navbar() {
               className="hidden sm:flex"
               data-testid="nav-admin"
             >
-              <Settings className="w-4 h-4 mr-2" />
-              Admin
+              <Shield className="w-4 h-4 mr-2" />
+              Admin Access
             </Button>
 
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>

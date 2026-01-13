@@ -65,6 +65,7 @@ interface AppState {
     seatClass: 'economy' | 'business';
   };
   isAdmin: boolean;
+  isAdminAuthenticated: boolean;
   
   addAirline: (airline: Omit<Airline, 'id'>) => void;
   removeAirline: (id: string) => void;
@@ -80,6 +81,8 @@ interface AppState {
   
   confirmBooking: () => Booking | null;
   toggleAdmin: () => void;
+  loginAdmin: () => void;
+  logoutAdmin: () => void;
 }
 
 const generateId = () => Math.random().toString(36).substring(2, 9);
@@ -193,6 +196,7 @@ export const useStore = create<AppState>((set, get) => ({
     seatClass: 'economy',
   },
   isAdmin: false,
+  isAdminAuthenticated: false,
 
   addAirline: (airline) =>
     set((state) => ({
@@ -285,4 +289,6 @@ export const useStore = create<AppState>((set, get) => ({
   },
 
   toggleAdmin: () => set((state) => ({ isAdmin: !state.isAdmin })),
+  loginAdmin: () => set({ isAdminAuthenticated: true, isAdmin: true }),
+  logoutAdmin: () => set({ isAdminAuthenticated: false, isAdmin: false }),
 }));

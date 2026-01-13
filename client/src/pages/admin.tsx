@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { motion } from 'framer-motion';
-import { Plus, Trash2, Plane, Building2, MapPin, ArrowLeft } from 'lucide-react';
+import { Plus, Trash2, Plane, Building2, MapPin, ArrowLeft, LogOut } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -46,11 +46,17 @@ const flightSchema = z.object({
 
 export default function Admin() {
   const [, setLocation] = useLocation();
-  const { airlines, airports, flights, bookings, addAirline, removeAirline, addAirport, removeAirport, addFlight, removeFlight } = useStore();
+  const { airlines, airports, flights, bookings, addAirline, removeAirline, addAirport, removeAirport, addFlight, removeFlight, logoutAdmin } = useStore();
   const { toast } = useToast();
   const [airlineDialogOpen, setAirlineDialogOpen] = useState(false);
   const [airportDialogOpen, setAirportDialogOpen] = useState(false);
   const [flightDialogOpen, setFlightDialogOpen] = useState(false);
+
+  const handleLogout = () => {
+    logoutAdmin();
+    setLocation('/');
+    toast({ title: 'Logged out from admin panel' });
+  };
 
   const airlineForm = useForm<z.infer<typeof airlineSchema>>({
     resolver: zodResolver(airlineSchema),
@@ -122,6 +128,10 @@ export default function Admin() {
                 <p className="text-sm text-muted-foreground">Total Bookings</p>
                 <p className="text-2xl font-bold text-primary">{bookings.length}</p>
               </div>
+              <Button variant="outline" size="sm" onClick={handleLogout} className="text-destructive hover:text-destructive" data-testid="button-admin-logout">
+                <LogOut className="w-4 h-4 mr-2" />
+                Logout
+              </Button>
             </div>
           </div>
         </div>
