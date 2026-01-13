@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import { Plane, Settings, Home, Search, User, Menu, X, LogIn, UserPlus, Gift, Headphones, MapPin } from 'lucide-react';
+import { Plane, Settings, Home, Search, User, Menu, X, LogIn, UserPlus, Gift, Headphones, MapPin, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
