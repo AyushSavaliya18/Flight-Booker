@@ -397,21 +397,23 @@ export default function Home() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative flex justify-center lg:justify-end"
             >
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"
-                alt="Family travel"
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-white text-foreground rounded-xl p-4 shadow-xl">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                    <Baby className="w-6 h-6 text-green-600" />
-                  </div>
-                  <div>
-                    <p className="font-bold">Kids Fly Half Price!</p>
-                    <p className="text-sm text-muted-foreground">Ages 2-11</p>
+              <div className="relative w-full max-w-md">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"
+                  alt="Family travel"
+                  className="rounded-2xl shadow-2xl w-full h-auto object-cover max-h-[400px]"
+                />
+                <div className="absolute -bottom-6 -left-6 bg-white text-foreground rounded-xl p-4 shadow-xl">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                      <Baby className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <p className="font-bold">Kids Fly Half Price!</p>
+                      <p className="text-sm text-muted-foreground">Ages 2-11</p>
+                    </div>
                   </div>
                 </div>
               </div>
