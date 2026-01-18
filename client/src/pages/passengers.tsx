@@ -71,41 +71,24 @@ export default function Passengers() {
   };
 
   return (
-    <div className="min-h-screen bg-background py-8">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <Button
-            variant="ghost"
-            onClick={() => setLocation('/flights')}
-            className="mb-4"
-            data-testid="button-back"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Flights
-          </Button>
-
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-              1
-            </div>
-            <div className="flex-1 h-1 bg-primary rounded" />
-            <div className="w-10 h-10 rounded-full bg-muted text-muted-foreground flex items-center justify-center font-bold">
-              2
-            </div>
-            <div className="flex-1 h-1 bg-muted rounded" />
-            <div className="w-10 h-10 rounded-full bg-muted text-muted-foreground flex items-center justify-center font-bold">
-              3
-            </div>
+    <div className="min-h-screen bg-gray-50/50 pb-20">
+      {/* Header with Image Background */}
+      <div className="relative h-48 bg-primary overflow-hidden mb-8">
+        <img 
+          src="https://images.unsplash.com/photo-1544016768-982d1554f0b9?w=1600"
+          className="w-full h-full object-cover opacity-30"
+          alt="Passenger info"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-50/50 to-transparent" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="container max-w-4xl px-4 text-white text-center">
+            <h1 className="text-3xl font-bold">Passenger Details</h1>
+            <p className="text-primary-foreground/80 mt-2">Enter traveler information as shown on passports</p>
           </div>
+        </div>
+      </div>
 
-          <h1 className="text-3xl font-bold mb-2">Passenger Details</h1>
-          <p className="text-muted-foreground mb-8">
-            Please enter the details for all {passengerCount} passenger{passengerCount > 1 ? 's' : ''} as they appear on their passport
-          </p>
-        </motion.div>
+      <div className="container mx-auto px-4 max-w-4xl">
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

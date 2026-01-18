@@ -305,7 +305,12 @@ export default function Home() {
               <h2 className="text-4xl font-bold mb-2">Explore Top Destinations</h2>
               <p className="text-muted-foreground">Discover amazing places with exclusive deals</p>
             </div>
-            <Button variant="outline" className="mt-4 md:mt-0" data-testid="button-view-all">
+            <Button 
+              variant="outline" 
+              className="mt-4 md:mt-0" 
+              data-testid="button-view-all"
+              onClick={() => setLocation('/destinations')}
+            >
               View All Destinations
               <ChevronRight className="w-4 h-4 ml-2" />
             </Button>

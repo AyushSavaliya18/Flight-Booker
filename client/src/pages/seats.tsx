@@ -99,41 +99,24 @@ export default function Seats() {
   const totalPrice = price * requiredSeats;
 
   return (
-    <div className="min-h-screen bg-background py-8">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <Button
-            variant="ghost"
-            onClick={() => setLocation('/booking/passengers')}
-            className="mb-4"
-            data-testid="button-back"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Passengers
-          </Button>
-
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-              <Check className="w-5 h-5" />
-            </div>
-            <div className="flex-1 h-1 bg-primary rounded" />
-            <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-              2
-            </div>
-            <div className="flex-1 h-1 bg-muted rounded" />
-            <div className="w-10 h-10 rounded-full bg-muted text-muted-foreground flex items-center justify-center font-bold">
-              3
-            </div>
+    <div className="min-h-screen bg-gray-50/50 pb-20">
+      {/* Header Area */}
+      <div className="relative h-48 bg-primary overflow-hidden mb-8">
+        <img 
+          src="https://images.unsplash.com/photo-1542296332-2e4473faf563?w=1600"
+          className="w-full h-full object-cover opacity-30"
+          alt="Seat selection"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-50/50 to-transparent" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="container mx-auto px-4 text-white text-center">
+            <h1 className="text-3xl font-bold">Select Your Seats</h1>
+            <p className="text-primary-foreground/80 mt-2">Choose your preferred comfort for the journey</p>
           </div>
+        </div>
+      </div>
 
-          <h1 className="text-3xl font-bold mb-2">Select Your Seats</h1>
-          <p className="text-muted-foreground mb-8">
-            Choose {requiredSeats} {seatClass} class seat{requiredSeats > 1 ? 's' : ''} for your flight
-          </p>
-        </motion.div>
+      <div className="container mx-auto px-4">
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">

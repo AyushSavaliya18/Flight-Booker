@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useLocation, useSearch } from 'wouter';
 import { motion } from 'framer-motion';
-import { Plane, Clock, ArrowRight, Filter, ChevronDown } from 'lucide-react';
+import { Plane, Clock, ArrowRight, Filter, ChevronDown, Calendar, Users, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -57,47 +57,81 @@ export default function Flights() {
   };
 
   return (
-    <div className="min-h-screen bg-background py-8">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-gray-50/50">
+      {/* Header with Image */}
+      <div className="relative h-64 bg-primary overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=1600"
+          className="w-full h-full object-cover opacity-40 scale-105"
+          alt="Flight sky"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-4 text-white">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+            >
+              <h1 className="text-4xl md:text-5xl font-bold flex items-center gap-4">
+                <Plane className="w-10 h-10 rotate-45 text-blue-400" />
+                Available Flights
+              </h1>
+              <p className="text-xl text-gray-200 mt-4 max-w-2xl">
+                Explore the best routes and prices for your next adventure.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-12">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-10 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row md:items-center justify-between gap-6"
         >
-          <Button
-            variant="ghost"
-            onClick={() => setLocation('/')}
-            className="mb-4"
-            data-testid="button-back"
-          >
-            ← Back to Search
-          </Button>
-          
-          <div className="flex flex-wrap items-center gap-4 mb-6">
-            <h1 className="text-3xl font-bold">
-              {from && to ? (
-                <>
-                  {getAirport(from)?.city || from}
-                  <ArrowRight className="inline w-6 h-6 mx-3" />
-                  {getAirport(to)?.city || to}
-                </>
-              ) : (
-                'Available Flights'
-              )}
-            </h1>
+          <div>
+            <Button
+              variant="ghost"
+              onClick={() => setLocation('/')}
+              className="mb-4 hover:bg-primary/5 -ml-2"
+              data-testid="button-back"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Search
+            </Button>
+            
+            <div className="flex flex-wrap items-center gap-4">
+              <h2 className="text-2xl font-bold text-gray-800">
+                {from && to ? (
+                  <div className="flex items-center gap-3">
+                    <span className="text-primary">{getAirport(from)?.city || from}</span>
+                    <ArrowRight className="w-5 h-5 text-gray-400" />
+                    <span className="text-primary">{getAirport(to)?.city || to}</span>
+                  </div>
+                ) : (
+                  'All Destinations'
+                )}
+              </h2>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3">
             {date && (
-              <Badge variant="secondary" className="text-sm py-1 px-3">
+              <Badge variant="secondary" className="bg-blue-50 text-blue-700 hover:bg-blue-100 border-none py-2 px-4 rounded-full text-sm">
+                <Calendar className="w-3.5 h-3.5 mr-2" />
                 {new Date(date).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
               </Badge>
             )}
-            <Badge variant="outline" className="text-sm py-1 px-3">
+            <Badge variant="outline" className="py-2 px-4 rounded-full text-sm border-gray-200">
+              <Users className="w-3.5 h-3.5 mr-2" />
               {passengerCount} {passengerCount === 1 ? 'Passenger' : 'Passengers'}
             </Badge>
-          </div>
-
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Filter className="w-4 h-4" />
-            <span>{filteredFlights.length} flights found</span>
+            <div className="h-8 w-px bg-gray-200 mx-2 hidden md:block" />
+            <div className="flex items-center gap-2 text-sm font-medium text-gray-500">
+              <Filter className="w-4 h-4" />
+              <span>{filteredFlights.length} flights found</span>
+            </div>
           </div>
         </motion.div>
 

@@ -15,7 +15,7 @@ export function Navbar() {
     { label: 'Home', href: '/', icon: Home },
     { label: 'Flights', href: '/flights', icon: Search },
     { label: 'Deals', href: '#', icon: Gift },
-    { label: 'Destinations', href: '#', icon: MapPin },
+    { label: 'Destinations', href: '/destinations', icon: MapPin },
     { label: 'Support', href: '#', icon: Headphones },
   ];
 

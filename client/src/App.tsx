@@ -15,6 +15,7 @@ import Admin from "@/pages/admin";
 import AdminLogin from "@/pages/admin-login";
 import Login from "@/pages/login";
 import Signup from "@/pages/signup";
+import Destinations from "@/pages/destinations";
 import NotFound from "@/pages/not-found";
 import { useStore } from "@/lib/store";
 
@@ -35,6 +36,7 @@ function Router() {
       <Route path="/admin-login" component={AdminLogin} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
+      <Route path="/destinations" component={Destinations} />
       <Route component={NotFound} />
     </Switch>
   );
