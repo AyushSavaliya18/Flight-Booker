@@ -175,7 +175,7 @@ export default function Destinations() {
                       onClick={() => setLocation('/')}
                       className="rounded-full px-6 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
                     >
-                      Find Flights
+                      Book Now
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </div>
