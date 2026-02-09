@@ -54,65 +54,80 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[95vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920"
-            alt="Airplane flying"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent" />
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <motion.div 
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+            className="w-full h-full"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920"
+              alt="Airplane flying"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/80 to-slate-900/40" />
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1, ease: "easeOut" }}
               className="text-white"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur text-sm font-medium mb-6">
-                <Sparkles className="w-4 h-4 text-yellow-400" />
-                Up to 25% off on first booking
-              </div>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Discover Your
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 block">
-                  Dream Destination
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-8"
+              >
+                <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />
+                <span className="tracking-wide uppercase text-xs">Premium Travel Experience</span>
+              </motion.div>
+              <h1 className="text-6xl md:text-8xl font-black mb-8 leading-[1.1] tracking-tight">
+                Elevate Your
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 block mt-2">
+                  Global Journey
                 </span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8 max-w-lg">
-                Book flights to 500+ destinations worldwide. Special discounts for children and families. Your adventure starts here.
+              <p className="text-xl text-gray-300 mb-10 max-w-lg leading-relaxed font-light">
+                Experience world-class service and unparalleled comfort. From local gems to global wonders, we make every mile memorable.
               </p>
-              <div className="flex flex-wrap gap-6 text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <Baby className="w-5 h-5 text-green-400" />
+              <div className="flex flex-wrap gap-8">
+                <div className="group flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur flex items-center justify-center border border-white/10 group-hover:bg-primary/20 transition-colors">
+                    <Baby className="w-6 h-6 text-blue-400" />
                   </div>
-                  <span>50% off for children</span>
+                  <div className="text-left">
+                    <p className="text-sm font-bold text-white">50% Off</p>
+                    <p className="text-xs text-gray-400">For Children</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-blue-400" />
+                <div className="group flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur flex items-center justify-center border border-white/10 group-hover:bg-primary/20 transition-colors">
+                    <Shield className="w-6 h-6 text-blue-400" />
                   </div>
-                  <span>Secure booking</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-purple-400" />
+                  <div className="text-left">
+                    <p className="text-sm font-bold text-white">Secure</p>
+                    <p className="text-xs text-gray-400">Booking Pro</p>
                   </div>
-                  <span>Instant confirmation</span>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="relative"
             >
-              <div className="glass rounded-3xl shadow-2xl p-8 border border-white/20">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 to-blue-500/30 blur-3xl rounded-full opacity-60 animate-pulse" />
+              <div className="glass-dark rounded-[2.5rem] p-10 relative z-10 border border-white/10 shadow-2xl">
                 <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
                   <Search className="w-5 h-5 text-primary" />
                   Search Flights
