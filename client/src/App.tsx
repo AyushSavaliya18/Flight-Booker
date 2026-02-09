@@ -16,6 +16,8 @@ import AdminLogin from "@/pages/admin-login";
 import Login from "@/pages/login";
 import Signup from "@/pages/signup";
 import Destinations from "@/pages/destinations";
+import Deals from "@/pages/deals";
+import Support from "@/pages/support";
 import NotFound from "@/pages/not-found";
 import { useStore } from "@/lib/store";
 
@@ -37,6 +39,8 @@ function Router() {
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/destinations" component={Destinations} />
+      <Route path="/deals" component={Deals} />
+      <Route path="/support" component={Support} />
       <Route component={NotFound} />
     </Switch>
   );

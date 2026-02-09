@@ -14,9 +14,9 @@ export function Navbar() {
   const navLinks = [
     { label: 'Home', href: '/', icon: Home },
     { label: 'Flights', href: '/flights', icon: Search },
-    { label: 'Deals', href: '#', icon: Gift },
+    { label: 'Deals', href: '/deals', icon: Gift },
     { label: 'Destinations', href: '/destinations', icon: MapPin },
-    { label: 'Support', href: '#', icon: Headphones },
+    { label: 'Support', href: '/support', icon: Headphones },
   ];
 
   return (
