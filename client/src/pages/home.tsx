@@ -239,7 +239,7 @@ export default function Home() {
       </section>
 
       {/* Partner Airlines */}
-      <section className="py-12 bg-white border-b">
+      <section className="py-12 bg-white dark:bg-slate-900 border-b dark:border-slate-800">
         <div className="container mx-auto px-4">
           <p className="text-center text-muted-foreground mb-8">Trusted by millions. Partnered with world-class airlines.</p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
@@ -250,7 +250,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-center gap-2 text-gray-600"
+                className="flex items-center gap-2 text-gray-600 dark:text-gray-400"
               >
                 <span className="text-2xl">{airline.logo}</span>
                 <span className="font-medium">{airline.name}</span>
@@ -261,7 +261,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-950">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -270,7 +270,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <Badge className="mb-4">Why SkyBook</Badge>
-            <h2 className="text-4xl font-bold mb-4">The Best Way to Book Flights</h2>
+            <h2 className="text-4xl font-bold mb-4 dark:text-white">The Best Way to Book Flights</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Experience seamless booking with features designed for modern travelers
             </p>
@@ -293,12 +293,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="group p-6 rounded-2xl bg-white border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="group p-6 rounded-2xl bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 <div className={`w-12 h-12 rounded-xl ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                <h3 className="text-lg font-semibold mb-2 dark:text-white">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
               </motion.div>
             ))}
@@ -307,7 +307,7 @@ export default function Home() {
       </section>
 
       {/* Popular Destinations */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -317,7 +317,7 @@ export default function Home() {
           >
             <div>
               <Badge className="mb-4">Popular Destinations</Badge>
-              <h2 className="text-4xl font-bold mb-2">Explore Top Destinations</h2>
+              <h2 className="text-4xl font-bold mb-2 dark:text-white">Explore Top Destinations</h2>
               <p className="text-muted-foreground">Discover amazing places with exclusive deals</p>
             </div>
             <Button 
@@ -340,7 +340,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-300" data-testid={`card-destination-${index}`}>
+                <Card className="overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-300 dark:bg-slate-900 dark:border-slate-800" data-testid={`card-destination-${index}`}>
                   <div className="relative h-64 overflow-hidden">
                     <img
                       src={dest.image}
@@ -513,7 +513,7 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-slate-950 transition-colors">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -531,7 +531,7 @@ export default function Home() {
                 className="text-center"
               >
                 <p className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.value}</p>
-                <p className="text-muted-foreground">{stat.label}</p>
+                <p className="text-muted-foreground dark:text-gray-400">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -539,8 +539,9 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-24 bg-slate-900 dark:bg-slate-950 text-white relative overflow-hidden transition-colors">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}

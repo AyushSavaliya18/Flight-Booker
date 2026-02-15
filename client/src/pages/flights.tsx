@@ -57,7 +57,7 @@ export default function Flights() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50/50">
+    <div className="min-h-screen bg-gray-50/50 dark:bg-slate-950 transition-colors duration-300">
       {/* Header with Image */}
       <div className="relative h-64 bg-primary overflow-hidden">
         <img 
@@ -88,13 +88,13 @@ export default function Flights() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-10 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row md:items-center justify-between gap-6"
+          className="mb-10 bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-colors"
         >
           <div>
             <Button
               variant="ghost"
               onClick={() => setLocation('/')}
-              className="mb-4 hover:bg-primary/5 -ml-2"
+              className="mb-4 hover:bg-primary/5 dark:hover:bg-primary/10 -ml-2 dark:text-gray-300"
               data-testid="button-back"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -102,7 +102,7 @@ export default function Flights() {
             </Button>
             
             <div className="flex flex-wrap items-center gap-4">
-              <h2 className="text-2xl font-bold text-gray-800">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
                 {from && to ? (
                   <div className="flex items-center gap-3">
                     <span className="text-primary">{getAirport(from)?.city || from}</span>
@@ -118,17 +118,17 @@ export default function Flights() {
 
           <div className="flex flex-wrap items-center gap-3">
             {date && (
-              <Badge variant="secondary" className="bg-blue-50 text-blue-700 hover:bg-blue-100 border-none py-2 px-4 rounded-full text-sm">
+              <Badge variant="secondary" className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 border-none py-2 px-4 rounded-full text-sm">
                 <Calendar className="w-3.5 h-3.5 mr-2" />
                 {new Date(date).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
               </Badge>
             )}
-            <Badge variant="outline" className="py-2 px-4 rounded-full text-sm border-gray-200">
+            <Badge variant="outline" className="py-2 px-4 rounded-full text-sm border-gray-200 dark:border-slate-700 dark:text-gray-300">
               <Users className="w-3.5 h-3.5 mr-2" />
               {passengerCount} {passengerCount === 1 ? 'Passenger' : 'Passengers'}
             </Badge>
-            <div className="h-8 w-px bg-gray-200 mx-2 hidden md:block" />
-            <div className="flex items-center gap-2 text-sm font-medium text-gray-500">
+            <div className="h-8 w-px bg-gray-200 dark:bg-slate-800 mx-2 hidden md:block" />
+            <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400">
               <Filter className="w-4 h-4" />
               <span>{filteredFlights.length} flights found</span>
             </div>
@@ -165,22 +165,22 @@ export default function Flights() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow" data-testid={`card-flight-${flight.id}`}>
+                  <Card className="overflow-hidden hover:shadow-lg transition-all dark:bg-slate-900 dark:border-slate-800" data-testid={`card-flight-${flight.id}`}>
                     <CardContent className="p-0">
                       <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
                         <div className="lg:col-span-3 p-6">
                           <div className="flex items-center gap-3 mb-6">
                             <div className="text-2xl">{airline?.logo}</div>
                             <div>
-                              <p className="font-semibold">{airline?.name}</p>
+                              <p className="font-semibold dark:text-white">{airline?.name}</p>
                               <p className="text-sm text-muted-foreground">{flight.flightNumber}</p>
                             </div>
                           </div>
 
                           <div className="flex items-center gap-8">
                             <div className="text-center">
-                              <p className="text-3xl font-bold">{flight.departureTime}</p>
-                              <p className="text-sm font-medium">{flight.from}</p>
+                              <p className="text-3xl font-bold dark:text-white">{flight.departureTime}</p>
+                              <p className="text-sm font-medium dark:text-gray-300">{flight.from}</p>
                               <p className="text-xs text-muted-foreground">{fromAirport?.city}</p>
                             </div>
 
@@ -200,19 +200,19 @@ export default function Flights() {
                             </div>
 
                             <div className="text-center">
-                              <p className="text-3xl font-bold">{flight.arrivalTime}</p>
-                              <p className="text-sm font-medium">{flight.to}</p>
+                              <p className="text-3xl font-bold dark:text-white">{flight.arrivalTime}</p>
+                              <p className="text-sm font-medium dark:text-gray-300">{flight.to}</p>
                               <p className="text-xs text-muted-foreground">{toAirport?.city}</p>
                             </div>
                           </div>
                         </div>
 
-                        <div className="lg:col-span-1 bg-gray-50 p-6 flex flex-col justify-center gap-4 border-l">
+                        <div className="lg:col-span-1 bg-gray-50 dark:bg-slate-800/50 p-6 flex flex-col justify-center gap-4 border-l dark:border-slate-800">
                           <div className="space-y-3">
-                            <div className="flex items-center justify-between p-3 rounded-lg bg-white border hover:border-primary transition-colors">
+                            <div className="flex items-center justify-between p-3 rounded-lg bg-white dark:bg-slate-900 border dark:border-slate-800 hover:border-primary transition-colors">
                               <div>
                                 <p className="text-xs text-muted-foreground uppercase tracking-wide">Economy</p>
-                                <p className="text-xl font-bold">${flight.economyPrice}</p>
+                                <p className="text-xl font-bold dark:text-white">${flight.economyPrice}</p>
                               </div>
                               <Button
                                 size="sm"
@@ -223,10 +223,10 @@ export default function Flights() {
                               </Button>
                             </div>
 
-                            <div className="flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-amber-50 to-amber-100/50 border border-amber-200 hover:border-amber-400 transition-colors">
+                            <div className="flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-amber-50 to-amber-100/50 dark:from-amber-900/20 dark:to-amber-900/10 border border-amber-200 dark:border-amber-900/50 hover:border-amber-400 transition-colors">
                               <div>
-                                <p className="text-xs text-amber-700 uppercase tracking-wide font-medium">Business</p>
-                                <p className="text-xl font-bold text-amber-900">${flight.businessPrice}</p>
+                                <p className="text-xs text-amber-700 dark:text-amber-500 uppercase tracking-wide font-medium">Business</p>
+                                <p className="text-xl font-bold text-amber-900 dark:text-amber-100">${flight.businessPrice}</p>
                               </div>
                               <Button
                                 size="sm"

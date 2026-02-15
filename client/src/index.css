@@ -182,14 +182,12 @@
   }
   
   .glass {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px);
+    @apply bg-white/80 dark:bg-slate-950/60 backdrop-blur-xl;
     -webkit-backdrop-filter: blur(20px);
   }
   
   .glass-dark {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(20px);
+    @apply bg-black/60 dark:bg-black/80 backdrop-blur-xl;
     -webkit-backdrop-filter: blur(20px);
   }
 

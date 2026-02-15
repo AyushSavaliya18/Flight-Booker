@@ -20,6 +20,7 @@ import Deals from "@/pages/deals";
 import Support from "@/pages/support";
 import NotFound from "@/pages/not-found";
 import { useStore } from "@/lib/store";
+import { ThemeProvider } from "@/components/theme-provider";
 
 function Router() {
   const { isAdminAuthenticated } = useStore();
@@ -52,18 +53,20 @@ function App() {
   const hideFooter = location.startsWith('/admin') || location.startsWith('/booking');
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <div className="min-h-screen flex flex-col">
-          {!hideNavFooter && <Navbar />}
-          <main className="flex-1">
-            <Router />
-          </main>
-          {!hideNavFooter && !hideFooter && <Footer />}
-        </div>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <div className="min-h-screen flex flex-col transition-colors duration-300">
+            {!hideNavFooter && <Navbar />}
+            <main className="flex-1">
+              <Router />
+            </main>
+            {!hideNavFooter && !hideFooter && <Footer />}
+          </div>
+          <Toaster />
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
 

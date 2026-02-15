@@ -92,7 +92,7 @@ export default function Destinations() {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="min-h-screen bg-gray-50/50">
+    <div className="min-h-screen bg-gray-50/50 dark:bg-slate-950 transition-colors duration-300">
       {/* Hero Section */}
       <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -132,7 +132,7 @@ export default function Destinations() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-none bg-white">
+              <Card className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-none bg-white dark:bg-slate-900">
                 <div className="relative h-72 overflow-hidden">
                   <img
                     src={dest.image}
@@ -158,10 +158,10 @@ export default function Destinations() {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <p className="text-muted-foreground mb-6 line-clamp-2">
+                  <p className="text-muted-foreground mb-6 line-clamp-2 dark:text-gray-400">
                     {dest.description}
                   </p>
-                  <div className="flex items-center justify-between border-t pt-6">
+                  <div className="flex items-center justify-between border-t dark:border-slate-800 pt-6">
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Flights starting at</p>
                       <div className="flex items-center gap-2">
@@ -187,29 +187,29 @@ export default function Destinations() {
       </section>
 
       {/* Trust Section */}
-      <section className="py-20 bg-white border-t">
+      <section className="py-20 bg-white dark:bg-slate-900/50 border-t dark:border-slate-800">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <div className="space-y-4">
-              <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto">
-                <Shield className="w-8 h-8 text-blue-600" />
+              <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center mx-auto transition-colors">
+                <Shield className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold">100% Secure</h3>
-              <p className="text-muted-foreground">Your bookings are protected by bank-level encryption.</p>
+              <h3 className="text-xl font-bold dark:text-white">100% Secure</h3>
+              <p className="text-muted-foreground dark:text-gray-400">Your bookings are protected by bank-level encryption.</p>
             </div>
             <div className="space-y-4">
-              <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto">
-                <Clock className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-green-50 dark:bg-green-900/20 rounded-2xl flex items-center justify-center mx-auto transition-colors">
+                <Clock className="w-8 h-8 text-green-600 dark:text-green-400" />
               </div>
-              <h3 className="text-xl font-bold">Instant Confirmation</h3>
-              <p className="text-muted-foreground">Receive your tickets immediately after booking.</p>
+              <h3 className="text-xl font-bold dark:text-white">Instant Confirmation</h3>
+              <p className="text-muted-foreground dark:text-gray-400">Receive your tickets immediately after booking.</p>
             </div>
             <div className="space-y-4">
-              <div className="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mx-auto">
-                <Star className="w-8 h-8 text-purple-600" />
+              <div className="w-16 h-16 bg-purple-50 dark:bg-purple-900/20 rounded-2xl flex items-center justify-center mx-auto transition-colors">
+                <Star className="w-8 h-8 text-purple-600 dark:text-purple-400" />
               </div>
-              <h3 className="text-xl font-bold">Top Rated Service</h3>
-              <p className="text-muted-foreground">Over 10 million happy travelers trust SkyBook.</p>
+              <h3 className="text-xl font-bold dark:text-white">Top Rated Service</h3>
+              <p className="text-muted-foreground dark:text-gray-400">Over 10 million happy travelers trust SkyBook.</p>
             </div>
           </div>
         </div>

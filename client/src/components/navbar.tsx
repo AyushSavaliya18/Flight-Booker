@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Plane, Settings, Home, Search, User, Menu, X, LogIn, UserPlus, Gift, Headphones, MapPin, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { ThemeToggle } from './theme-provider';
 
 export function Navbar() {
   const [location, setLocation] = useLocation();
@@ -23,7 +24,7 @@ export function Navbar() {
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur-lg"
+      className="sticky top-0 z-50 border-b bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg"
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
@@ -88,6 +89,8 @@ export function Navbar() {
               <Shield className="w-4 h-4 mr-2" />
               Admin Access
             </Button>
+
+            <ThemeToggle />
 
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild className="lg:hidden">
