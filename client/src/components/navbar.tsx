@@ -5,10 +5,13 @@ import { Plane, Settings, Home, Search, User, Menu, X, LogIn, UserPlus, Gift, He
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ThemeToggle } from './theme-provider';
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from './theme-provider';
 
 export function Navbar() {
   const [location, setLocation] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const isAdminPage = location.startsWith('/admin');
 
@@ -156,6 +159,26 @@ export function Navbar() {
                   >
                     <Settings className="w-4 h-4 mr-2" />
                     Admin Panel
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    className="mt-2 justify-start"
+                    onClick={() => {
+                      toggleTheme();
+                    }}
+                  >
+                    {theme === 'light' ? (
+                      <>
+                        <Moon className="w-4 h-4 mr-3" />
+                        Dark Mode
+                      </>
+                    ) : (
+                      <>
+                        <Sun className="w-4 h-4 mr-3" />
+                        Light Mode
+                      </>
+                    )}
                   </Button>
                 </div>
               </SheetContent>
