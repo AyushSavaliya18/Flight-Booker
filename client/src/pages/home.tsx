@@ -458,50 +458,32 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="relative">
-            <motion.div 
-              className="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide no-scrollbar"
-              initial={{ x: 100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-            >
-              {reviews.map((review, index) => (
-                <motion.div
-                  key={index}
-                  className="min-w-[300px] md:min-w-[400px] snap-center"
-                  whileHover={{ y: -10 }}
-                >
-                  <Card className="h-full border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm" data-testid={`card-review-${index}`}>
-                    <CardContent className="p-8">
-                      <Quote className="w-10 h-10 text-primary/10 mb-6" />
-                      <p className="text-muted-foreground text-lg italic mb-8 leading-relaxed">"{review.review}"</p>
-                      <div className="flex items-center gap-1 mb-6">
-                        {[...Array(review.rating)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                        ))}
+          <div className="flex overflow-x-auto gap-8 pb-8 snap-x no-scrollbar">
+            {reviews.map((review, index) => (
+              <motion.div
+                key={index}
+                className="min-w-[300px] md:min-w-[400px] snap-center"
+                whileHover={{ y: -10 }}
+              >
+                <Card className="h-full dark:bg-slate-800 dark:border-slate-700 border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm" data-testid={`card-review-${index}`}>
+                  <CardContent className="p-8">
+                    <div className="flex items-center gap-1 mb-4">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <Quote className="w-10 h-10 text-primary/20 mb-4" />
+                    <p className="text-lg italic mb-6 dark:text-gray-300">"{review.review}"</p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">
+                        {review.avatar}
                       </div>
-                      <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">
-                          {review.avatar}
-                        </div>
-                        <div>
-                          <p className="font-bold text-lg">{review.name}</p>
-                          <p className="text-sm text-muted-foreground flex items-center gap-1">
-                            <MapPin className="w-3 h-3" />
-                            {review.location}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-                        <p className="font-semibold">{review.name}</p>
-                        <p className="text-sm text-muted-foreground">{review.location}</p>
+                      <div>
+                        <h4 className="font-bold dark:text-white">{review.name}</h4>
+                        <p className="text-sm text-muted-foreground flex items-center gap-1">
+                          <MapPin className="w-3 h-3" />
+                          {review.location}
+                        </p>
                       </div>
                     </div>
                   </CardContent>
