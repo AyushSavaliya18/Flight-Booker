@@ -62,24 +62,27 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="hidden md:flex items-center gap-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setLocation('/login')}
-                data-testid="nav-login"
-              >
-                <LogIn className="w-4 h-4 mr-2" />
-                Sign In
-              </Button>
-              <Button
-                size="sm"
-                onClick={() => setLocation('/signup')}
-                data-testid="nav-signup"
-              >
-                <UserPlus className="w-4 h-4 mr-2" />
-                Sign Up
-              </Button>
+            <div className="flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setLocation('/login')}
+                  data-testid="nav-login"
+                >
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Sign In
+                </Button>
+                <Button
+                  size="sm"
+                  onClick={() => setLocation('/signup')}
+                  data-testid="nav-signup"
+                >
+                  <UserPlus className="w-4 h-4 mr-2" />
+                  Sign Up
+                </Button>
+              </div>
+              <ThemeToggle />
             </div>
             
             <Button
@@ -92,8 +95,6 @@ export function Navbar() {
               <Shield className="w-4 h-4 mr-2" />
               Admin Access
             </Button>
-
-            <ThemeToggle />
 
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild className="lg:hidden">
