@@ -443,7 +443,7 @@ export default function Home() {
       </section>
 
       {/* Customer Reviews */}
-      <section className="py-24 bg-gray-50 overflow-hidden">
+      <section className="py-24 bg-gray-50 dark:bg-slate-900 overflow-hidden transition-colors">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -452,8 +452,8 @@ export default function Home() {
             className="text-center mb-16"
           >
             <Badge className="mb-4">Testimonials</Badge>
-            <h2 className="text-4xl font-bold mb-4">What Our Customers Say</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 dark:text-white">What Our Customers Say</h2>
+            <p className="text-muted-foreground dark:text-gray-400 text-lg max-w-2xl mx-auto">
               Join thousands of happy travelers who book with SkyBook
             </p>
           </motion.div>
@@ -465,7 +465,7 @@ export default function Home() {
                 className="min-w-[300px] md:min-w-[400px] snap-center"
                 whileHover={{ y: -10 }}
               >
-                <Card className="h-full dark:bg-slate-800 dark:border-slate-700 border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm" data-testid={`card-review-${index}`}>
+                <Card className="h-full border-none shadow-lg hover:shadow-2xl transition-all duration-300 bg-white dark:bg-slate-800 backdrop-blur-sm" data-testid={`card-review-${index}`}>
                   <CardContent className="p-8">
                     <div className="flex items-center gap-1 mb-4">
                       {[...Array(review.rating)].map((_, i) => (
@@ -473,13 +473,13 @@ export default function Home() {
                       ))}
                     </div>
                     <Quote className="w-10 h-10 text-primary/20 mb-4" />
-                    <p className="text-lg italic mb-6 dark:text-gray-300">"{review.review}"</p>
+                    <p className="text-lg italic mb-6 text-slate-700 dark:text-slate-300">"{review.review}"</p>
                     <div className="flex items-center gap-4">
                       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">
                         {review.avatar}
                       </div>
                       <div>
-                        <h4 className="font-bold dark:text-white">{review.name}</h4>
+                        <h4 className="font-bold text-slate-900 dark:text-white">{review.name}</h4>
                         <p className="text-sm text-muted-foreground flex items-center gap-1">
                           <MapPin className="w-3 h-3" />
                           {review.location}
