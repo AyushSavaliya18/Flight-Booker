@@ -18,6 +18,12 @@ import Signup from "@/pages/signup";
 import Destinations from "@/pages/destinations";
 import Deals from "@/pages/deals";
 import Support from "@/pages/support";
+import MyBookings from "@/pages/footer/my-bookings";
+import TravelGuide from "@/pages/footer/travel-guide";
+import FlightStatus from "@/pages/footer/flight-status";
+import HelpCenter from "@/pages/footer/help-center";
+import FAQs from "@/pages/footer/faqs";
+import PolicyPage from "@/pages/footer/privacy-policy";
 import NotFound from "@/pages/not-found";
 import { useStore } from "@/lib/store";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -42,6 +48,23 @@ function Router() {
       <Route path="/destinations" component={Destinations} />
       <Route path="/deals" component={Deals} />
       <Route path="/support" component={Support} />
+      <Route path="/my-bookings" component={MyBookings} />
+      <Route path="/travel-guide" component={TravelGuide} />
+      <Route path="/flight-status" component={FlightStatus} />
+      <Route path="/help-center" component={HelpCenter} />
+      <Route path="/faqs" component={FAQs} />
+      <Route path="/cancellation-policy">
+        <PolicyPage title="Cancellation Policy" />
+      </Route>
+      <Route path="/refund-policy">
+        <PolicyPage title="Refund Policy" />
+      </Route>
+      <Route path="/privacy-policy">
+        <PolicyPage title="Privacy Policy" />
+      </Route>
+      <Route path="/terms-of-service">
+        <PolicyPage title="Terms of Service" />
+      </Route>
       <Route component={NotFound} />
     </Switch>
   );

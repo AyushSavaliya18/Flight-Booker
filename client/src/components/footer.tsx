@@ -39,22 +39,23 @@ export function Footer() {
             <ul className="space-y-3">
               <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/'); }} className="text-slate-400 hover:text-white transition-colors">Home</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/flights'); }} className="text-slate-400 hover:text-white transition-colors">Search Flights</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Deals & Offers</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors">My Bookings</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Travel Guide</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Flight Status</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/deals'); }} className="text-slate-400 hover:text-white transition-colors">Deals & Offers</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/my-bookings'); }} className="text-slate-400 hover:text-white transition-colors">My Bookings</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/travel-guide'); }} className="text-slate-400 hover:text-white transition-colors">Travel Guide</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/flight-status'); }} className="text-slate-400 hover:text-white transition-colors">Flight Status</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/support'); }} className="text-slate-400 hover:text-white transition-colors">Support</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-6">Support</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors">FAQs</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Cancellation Policy</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Refund Policy</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Terms of Service</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/help-center'); }} className="text-slate-400 hover:text-white transition-colors">Help Center</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/faqs'); }} className="text-slate-400 hover:text-white transition-colors">FAQs</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/cancellation-policy'); }} className="text-slate-400 hover:text-white transition-colors">Cancellation Policy</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/refund-policy'); }} className="text-slate-400 hover:text-white transition-colors">Refund Policy</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/privacy-policy'); }} className="text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/terms-of-service'); }} className="text-slate-400 hover:text-white transition-colors">Terms of Service</a></li>
             </ul>
           </div>
 
