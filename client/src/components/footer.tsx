@@ -1,8 +1,7 @@
 import { Plane, Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
-import { useLocation } from 'wouter';
+import { Link } from 'wouter';
 
 export function Footer() {
-  const [, setLocation] = useLocation();
 
   return (
     <footer className="bg-slate-900 text-white">
@@ -37,25 +36,25 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/'); }} className="text-slate-400 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/flights'); }} className="text-slate-400 hover:text-white transition-colors">Search Flights</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/deals'); }} className="text-slate-400 hover:text-white transition-colors">Deals & Offers</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/my-bookings'); }} className="text-slate-400 hover:text-white transition-colors">My Bookings</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/travel-guide'); }} className="text-slate-400 hover:text-white transition-colors">Travel Guide</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/flight-status'); }} className="text-slate-400 hover:text-white transition-colors">Flight Status</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/support'); }} className="text-slate-400 hover:text-white transition-colors">Support</a></li>
+              <li><Link href="/" className="text-slate-400 hover:text-white transition-colors">Home</Link></li>
+              <li><Link href="/flights" className="text-slate-400 hover:text-white transition-colors">Search Flights</Link></li>
+              <li><Link href="/deals" className="text-slate-400 hover:text-white transition-colors">Deals & Offers</Link></li>
+              <li><Link href="/my-bookings" className="text-slate-400 hover:text-white transition-colors">My Bookings</Link></li>
+              <li><Link href="/travel-guide" className="text-slate-400 hover:text-white transition-colors">Travel Guide</Link></li>
+              <li><Link href="/flight-status" className="text-slate-400 hover:text-white transition-colors">Flight Status</Link></li>
+              <li><Link href="/support" className="text-slate-400 hover:text-white transition-colors">Support</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-6">Support</h3>
             <ul className="space-y-3">
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/help-center'); }} className="text-slate-400 hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/faqs'); }} className="text-slate-400 hover:text-white transition-colors">FAQs</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/cancellation-policy'); }} className="text-slate-400 hover:text-white transition-colors">Cancellation Policy</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/refund-policy'); }} className="text-slate-400 hover:text-white transition-colors">Refund Policy</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/privacy-policy'); }} className="text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setLocation('/terms-of-service'); }} className="text-slate-400 hover:text-white transition-colors">Terms of Service</a></li>
+              <li><Link href="/help-center" className="text-slate-400 hover:text-white transition-colors">Help Center</Link></li>
+              <li><Link href="/faqs" className="text-slate-400 hover:text-white transition-colors">FAQs</Link></li>
+              <li><Link href="/cancellation-policy" className="text-slate-400 hover:text-white transition-colors">Cancellation Policy</Link></li>
+              <li><Link href="/refund-policy" className="text-slate-400 hover:text-white transition-colors">Refund Policy</Link></li>
+              <li><Link href="/privacy-policy" className="text-slate-400 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-of-service" className="text-slate-400 hover:text-white transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
 
