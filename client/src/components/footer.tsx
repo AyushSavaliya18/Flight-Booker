@@ -36,25 +36,25 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><Link href="/"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Home</a></Link></li>
-              <li><Link href="/flights"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Search Flights</a></Link></li>
-              <li><Link href="/deals"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Deals & Offers</a></Link></li>
-              <li><Link href="/my-bookings"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">My Bookings</a></Link></li>
-              <li><Link href="/travel-guide"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Travel Guide</a></Link></li>
-              <li><Link href="/flight-status"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Flight Status</a></Link></li>
-              <li><Link href="/support"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Support</a></Link></li>
+              <li><Link href="/" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Home</Link></li>
+              <li><Link href="/flights" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Search Flights</Link></li>
+              <li><Link href="/deals" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Deals & Offers</Link></li>
+              <li><Link href="/my-bookings" className="text-slate-400 hover:text-white transition-colors cursor-pointer">My Bookings</Link></li>
+              <li><Link href="/travel-guide" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Travel Guide</Link></li>
+              <li><Link href="/flight-status" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Flight Status</Link></li>
+              <li><Link href="/support" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Support</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-6">Support</h3>
             <ul className="space-y-3">
-              <li><Link href="/help-center"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Help Center</a></Link></li>
-              <li><Link href="/faqs"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">FAQs</a></Link></li>
-              <li><Link href="/cancellation-policy"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Cancellation Policy</a></Link></li>
-              <li><Link href="/refund-policy"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Refund Policy</a></Link></li>
-              <li><Link href="/privacy-policy"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Privacy Policy</a></Link></li>
-              <li><Link href="/terms-of-service"><a className="text-slate-400 hover:text-white transition-colors cursor-pointer">Terms of Service</a></Link></li>
+              <li><Link href="/help-center" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Help Center</Link></li>
+              <li><Link href="/faqs" className="text-slate-400 hover:text-white transition-colors cursor-pointer">FAQs</Link></li>
+              <li><Link href="/cancellation-policy" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Cancellation Policy</Link></li>
+              <li><Link href="/refund-policy" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Refund Policy</Link></li>
+              <li><Link href="/privacy-policy" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Privacy Policy</Link></li>
+              <li><Link href="/terms-of-service" className="text-slate-400 hover:text-white transition-colors cursor-pointer">Terms of Service</Link></li>
             </ul>
           </div>
 
