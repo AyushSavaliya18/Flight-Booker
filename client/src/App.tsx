@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -30,43 +31,54 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 function Router() {
   const { isAdminAuthenticated } = useStore();
+  const [location] = useLocation();
   
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/flights" component={Flights} />
-      <Route path="/booking/passengers" component={Passengers} />
-      <Route path="/booking/seats" component={Seats} />
-      <Route path="/booking/payment" component={Payment} />
-      <Route path="/booking/confirmation/:id" component={Confirmation} />
-      <Route path="/admin">
-        {isAdminAuthenticated ? <Admin /> : <AdminLogin />}
-      </Route>
-      <Route path="/admin-login" component={AdminLogin} />
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/destinations" component={Destinations} />
-      <Route path="/deals" component={Deals} />
-      <Route path="/support" component={Support} />
-      <Route path="/my-bookings" component={MyBookings} />
-      <Route path="/travel-guide" component={TravelGuide} />
-      <Route path="/flight-status" component={FlightStatus} />
-      <Route path="/help-center" component={HelpCenter} />
-      <Route path="/faqs" component={FAQs} />
-      <Route path="/cancellation-policy">
-        <PolicyPage title="Cancellation Policy" />
-      </Route>
-      <Route path="/refund-policy">
-        <PolicyPage title="Refund Policy" />
-      </Route>
-      <Route path="/privacy-policy">
-        <PolicyPage title="Privacy Policy" />
-      </Route>
-      <Route path="/terms-of-service">
-        <PolicyPage title="Terms of Service" />
-      </Route>
-      <Route component={NotFound} />
-    </Switch>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
+        <Switch location={location}>
+          <Route path="/" component={Home} />
+          <Route path="/flights" component={Flights} />
+          <Route path="/booking/passengers" component={Passengers} />
+          <Route path="/booking/seats" component={Seats} />
+          <Route path="/booking/payment" component={Payment} />
+          <Route path="/booking/confirmation/:id" component={Confirmation} />
+          <Route path="/admin">
+            {isAdminAuthenticated ? <Admin /> : <AdminLogin />}
+          </Route>
+          <Route path="/admin-login" component={AdminLogin} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/destinations" component={Destinations} />
+          <Route path="/deals" component={Deals} />
+          <Route path="/support" component={Support} />
+          <Route path="/my-bookings" component={MyBookings} />
+          <Route path="/travel-guide" component={TravelGuide} />
+          <Route path="/flight-status" component={FlightStatus} />
+          <Route path="/help-center" component={HelpCenter} />
+          <Route path="/faqs" component={FAQs} />
+          <Route path="/cancellation-policy">
+            <PolicyPage title="Cancellation Policy" />
+          </Route>
+          <Route path="/refund-policy">
+            <PolicyPage title="Refund Policy" />
+          </Route>
+          <Route path="/privacy-policy">
+            <PolicyPage title="Privacy Policy" />
+          </Route>
+          <Route path="/terms-of-service">
+            <PolicyPage title="Terms of Service" />
+          </Route>
+          <Route component={NotFound} />
+        </Switch>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

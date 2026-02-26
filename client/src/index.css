@@ -159,6 +159,10 @@
   --chart-5: 27 87% 67%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   * {
     @apply border-border;
