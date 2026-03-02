@@ -52,52 +52,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Animated Background Shapes */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-            x: [0, 100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] dark:bg-primary/5"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [0, -120, 0],
-            x: [0, -80, 0],
-            y: [0, 100, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute top-[20%] -right-[10%] w-[35%] h-[35%] bg-blue-400/10 rounded-full blur-[100px] dark:bg-blue-400/5"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            x: [0, 50, 0],
-            y: [0, -100, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute -bottom-[10%] left-[20%] w-[30%] h-[30%] bg-indigo-500/10 rounded-full blur-[110px] dark:bg-indigo-500/5"
-        />
-      </div>
-
+    <div className="relative">
       <div className="relative z-10">
         {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -271,11 +226,14 @@ export default function Home() {
                   <Button
                     onClick={handleSearch}
                     disabled={!from || !to || !date}
-                    className="w-full h-14 text-lg font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/40 transition-all"
+                    className="w-full h-14 text-lg font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/40 transition-all relative overflow-hidden group"
                     data-testid="button-search"
                   >
-                    <Search className="w-5 h-5 mr-2" />
-                    Search Flights
+                    <motion.div
+                      className="absolute inset-0 shimmer-bg opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
+                    <Search className="w-5 h-5 mr-2 relative z-10" />
+                    <span className="relative z-10">Search Flights</span>
                   </Button>
                 </div>
               </div>
@@ -307,12 +265,13 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-950">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-950">
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
             <Badge className="mb-4">Why SkyBook</Badge>
@@ -345,7 +304,7 @@ export default function Home() {
                   z: 50
                 }}
                 style={{ perspective: 1000 }}
-                className="group p-6 rounded-2xl bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 hover:shadow-2xl hover:border-primary/20 transition-all duration-300"
+                className="group p-6 rounded-2xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-gray-100 dark:border-slate-800 hover:shadow-2xl hover:border-primary/20 transition-all duration-300"
               >
                 <motion.div 
                   animate={{ 
@@ -370,12 +329,13 @@ export default function Home() {
       </section>
 
       {/* Popular Destinations */}
-      <section className="py-24 bg-white dark:bg-slate-950">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative bg-white dark:bg-slate-950">
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
             className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12"
           >
             <div>

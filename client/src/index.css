@@ -224,3 +224,129 @@ html {
     @apply bg-amber-500 text-white border-amber-600;
   }
 }
+
+@layer utilities {
+  .blob {
+    filter: blur(80px);
+    opacity: 0.15;
+    mix-blend-mode: multiply;
+  }
+  
+  .dark .blob {
+    mix-blend-mode: plus-lighter;
+    opacity: 0.1;
+  }
+
+  .animate-slow-spin {
+    animation: spin 30s linear infinite;
+  }
+
+  .animate-reverse-slow-spin {
+    animation: spin 35s linear infinite reverse;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
+
+@layer utilities {
+  .floating-shape {
+    filter: blur(60px);
+    opacity: 0.15;
+    mix-blend-mode: multiply;
+  }
+  
+  .dark .floating-shape {
+    mix-blend-mode: plus-lighter;
+    opacity: 0.1;
+  }
+
+  .animate-slow-spin {
+    animation: spin 30s linear infinite;
+  }
+
+  .animate-reverse-slow-spin {
+    animation: spin 35s linear infinite reverse;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
+
+@layer utilities {
+  .floating-shape {
+    filter: blur(80px);
+    opacity: 0.15;
+    mix-blend-mode: multiply;
+  }
+  
+  .dark .floating-shape {
+    mix-blend-mode: plus-lighter;
+    opacity: 0.1;
+  }
+
+  .animate-slow-spin {
+    animation: spin 30s linear infinite;
+  }
+
+  .animate-reverse-slow-spin {
+    animation: spin 35s linear infinite reverse;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}

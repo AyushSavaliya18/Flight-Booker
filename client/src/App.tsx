@@ -104,9 +104,76 @@ function App() {
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
-          <div className="min-h-screen flex flex-col transition-colors duration-300">
+          <div className="min-h-screen flex flex-col transition-colors duration-300 relative">
+            {/* Global Animated Background */}
+            <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+              <motion.div
+                animate={{
+                  x: [0, 100, 0],
+                  y: [0, 50, 0],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/10 rounded-full blob animate-slow-spin dark:bg-primary/5"
+              />
+              <motion.div
+                animate={{
+                  x: [0, -80, 0],
+                  y: [0, 100, 0],
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 25,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute top-[20%] -right-[10%] w-[35%] h-[35%] bg-blue-400/10 rounded-full blob animate-reverse-slow-spin dark:bg-blue-400/5"
+              />
+              <motion.div
+                animate={{
+                  x: [0, 50, 0],
+                  y: [0, -100, 0],
+                  scale: [1, 1.3, 1],
+                }}
+                transition={{
+                  duration: 18,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute -bottom-[10%] left-[20%] w-[30%] h-[30%] bg-indigo-500/10 rounded-full blob dark:bg-indigo-500/5"
+              />
+              
+              {/* Floating Particles */}
+              <div className="absolute inset-0 opacity-20 dark:opacity-10">
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      y: [0, -1000],
+                      opacity: [0, 1, 0],
+                    }}
+                    transition={{
+                      duration: 10 + Math.random() * 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                      delay: Math.random() * 20
+                    }}
+                    className="absolute w-1 h-1 bg-primary rounded-full"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      bottom: "-5%"
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+
             {!hideNavFooter && <Navbar />}
-            <main className="flex-1">
+            <main className="flex-1 relative z-10">
               <Router />
             </main>
             {!hideNavFooter && !hideFooter && <Footer />}
