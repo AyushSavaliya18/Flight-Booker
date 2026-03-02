@@ -40,9 +40,12 @@ const policies: Record<string, PolicyContent> = {
     title: "Terms of Service",
     icon: Shield,
     sections: [
-      { subtitle: "User Responsibilities", content: "Users must provide accurate information and are responsible for maintaining the confidentiality of their account credentials." },
-      { subtitle: "Booking Accuracy", content: "It is the traveler's responsibility to verify all flight details, including dates, times, and passenger names, before completing a purchase." },
-      { subtitle: "Limitation of Liability", content: "SkyBook acts as an intermediary between travelers and service providers. We are not liable for delays or cancellations caused by third parties." }
+      { subtitle: "1. Eligibility & Use", content: "By using SkyBook, you confirm that you are at least 18 years of age and possess the legal authority to enter into this agreement. The platform is intended for personal, non-commercial use only." },
+      { subtitle: "2. Booking Accuracy", content: "It is the traveler's responsibility to verify all flight details, including dates, times, and passenger names (matching government ID), before completing a purchase. Errors may result in cancellation fees." },
+      { subtitle: "3. Intellectual Property", content: "All content, including logos, designs, and software on SkyBook, is the exclusive property of SkyBook and is protected by international copyright and trademark laws." },
+      { subtitle: "4. Termination of Use", content: "We reserve the right to terminate or suspend access to our platform immediately, without prior notice, for conduct that we believe violates these Terms or is harmful to other users." },
+      { subtitle: "5. Limitation of Liability", content: "SkyBook acts as an intermediary. We are not liable for direct or indirect damages resulting from flight delays, cancellations, or service failures by third-party airlines." },
+      { subtitle: "6. Governing Law", content: "These terms are governed by and construed in accordance with the laws of India. Any disputes will be subject to the exclusive jurisdiction of the courts in Mumbai." }
     ]
   }
 };
